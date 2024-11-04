@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- https://www.bootstrapcdn.com/ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Teachers Constroller</title>
+</head>
+
+<body> 
+    <h1>Teachers Site</h1>
+    <div id = "app">
+        <h2> get all </h2>
+        <button id = "getAllButton" v-on:click = "getAllTeachers" class = "btn btn-primary"> Get All Teachers </button>
+        <br />
+        <ul id = "teacherlist" v-if = "teachers.length" >
+            <li v-for = "teacher in teachers">
+                {{teacher.id}} {{teacher.name}} {{teacher.salary}}
+            </li>
+        </ul>
+        
+    </div>
+    <script src = "Teachers.js"></script>
+</body>
+
