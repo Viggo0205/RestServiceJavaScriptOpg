@@ -15,7 +15,7 @@
 <body> 
     <h1>Teachers Site</h1>
     <div id = "app">
-        <h2> get all </h2>
+        <h2> Get all </h2>
         <button id = "getAllButton" v-on:click = "getAllTeachers" class = "btn btn-primary"> Get All Teachers </button>
         <br />
         <ul id = "teacherlist" v-if = "teachers.length" >
@@ -23,8 +23,33 @@
                 {{teacher.id}} {{teacher.name}} {{teacher.salary}}
             </li>
         </ul>
-        
-    </div>
+        <div v-else>No Teachers </div>
+        <h2> Get by ID (GET)</h2>
+        <input v-model="GetByIdId" placeholder= "id" type = "number" />
+        <button v-on:click= "getById(GetByIdId)" class="btn btn-primary">Get by id</button>
+        <div v-if = "singleTeacher"> 
+            {{singleTeacher.id}} {{singleTeacher.name}} {{singleTeacher.salary}}
+        </div>
+        <div v-else>No Teacher found</div>
+
+        <h2>Delete (DELETE)</h2>
+        <input v-model.number="deleteId" placeholder="id" type="number" />
+        <button v-on:click="deleteTeacher(deleteId)" class="btn btn-warning">Delete</button>
+        {{deleteMessage}}
+
+        <h2>Add (POST)</h2>¨
+        <input v-model="addData.name" placeholder="name" type="text" />
+        <input v-model.number="addData.salary" placeholder="price" type="salary" />
+        <button v-on:click="addTeacher()" class="btn btn-success">Add</button>
+        {{addMessage}}
+
+        <h2>Update (PUT)</h2>
+        <input v-model.number="updateData.id" placeholder="id" type="number" />
+        <input v-model="updateData.name" placeholder = "name" type="text" />
+        <input v-model="updateData.salary" placeholder="salary" type="number" />
+        <button v-on:click="updateTeacher()" class="btn btn-success">Update</button>
+        <div>{{updateMessage}}</div>
+
     <script src = "Teachers.js"></script>
 </body>
 
